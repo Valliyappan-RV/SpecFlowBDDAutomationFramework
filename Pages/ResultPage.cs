@@ -16,7 +16,7 @@ namespace SpecFlowBDDAutomationFramework.Pages
         #endregion
 
         #region Locators
-        By channelName = By.XPath("(//a[@href=\"/@TheSecretByRhondaByrne\"])[3]");
+        By channelName = By.XPath("//a[@href=\"/@TheSecretByRhondaByrne\"][@id=\"main-link\"]");
         #endregion 
 
         #region Constructor

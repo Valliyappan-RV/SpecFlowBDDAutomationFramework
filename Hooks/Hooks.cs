@@ -32,12 +32,12 @@ namespace SpecFlowBDDAutomationFramework.Hooks
             ExtentReportTearDown();
         }
 
-        [AfterTestRun(Order = 2)]
-        public static void AfterTestRun1()
-        {
-            Console.WriteLine("Running after test run to close all browser windows...");
-            ExtentReportTearDown();
-        }
+        //[AfterTestRun(Order = 2)]
+        //public static void AfterTestRun1()
+        //{
+        //    Console.WriteLine("Running after test run to close all browser windows...");
+        //    ExtentReportTearDown();
+        //}
 
         [BeforeFeature]
         public static void BeforeFeature(FeatureContext featureContext)

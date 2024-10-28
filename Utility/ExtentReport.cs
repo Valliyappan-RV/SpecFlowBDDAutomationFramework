@@ -2,11 +2,6 @@
 using AventStack.ExtentReports.Reporter;
 using AventStack.ExtentReports.Reporter.Config;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SpecFlowBDDAutomationFramework.Utility
 {
@@ -18,7 +13,8 @@ namespace SpecFlowBDDAutomationFramework.Utility
         public static ExtentTest _scenario;
 
         public static String dir = AppDomain.CurrentDomain.BaseDirectory;
-        public static String testResultPath = dir.Replace("bin\\Debug\\net6.0", "TestResults");
+        public static String testResultPath = Path.Combine(dir, "TestResults", "extentReport.html");
+        //public static String testResultPath = @"C:\Users\valliyappan.rv\source\repos\Valliyappan-RV\SpecFlowBDDAutomationFramework\TestResults\extentReport.html";     
         #endregion
 
         public static void ExtentReportInit()
@@ -37,7 +33,14 @@ namespace SpecFlowBDDAutomationFramework.Utility
 
         public static void ExtentReportTearDown()
         {
-            _extentReports.Flush();
+            try
+            {
+                _extentReports.Flush();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
         public string AddScreenshot(IWebDriver driver, ScenarioContext scenarioContext)
